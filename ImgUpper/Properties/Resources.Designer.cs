@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImageUpper.Properties {
+namespace ImageUps.Properties {
     using System;
     
     
@@ -66,6 +66,16 @@ namespace ImageUpper.Properties {
         internal static System.Drawing.Bitmap IUlogo {
             get {
                 object obj = ResourceManager.GetObject("IUlogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IUlogo1 {
+            get {
+                object obj = ResourceManager.GetObject("IUlogo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -18,7 +18,9 @@ namespace ImageUpper
 {
     public partial class ImageUps : Form
     {
+
         Auth auth = new Auth();
+
 
         public ImageUps()
         {
@@ -41,6 +43,8 @@ namespace ImageUpper
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Select images to upload
+
             InitializeOpenFileDialog();
 
             DialogResult dr = this.openFileDialog1.ShowDialog();
@@ -84,12 +88,9 @@ namespace ImageUpper
                 MessageBox.Show("Please select an image or images first.", "Error - No Images");
             }
 
-            // If the listbox does contain images to upload, then something carry on with uploading
             else
             {
-                /* Counter for the progress bar - divides 100 by the item count that's in the first listbox,
-                   this gives the percentage to increase by each time (see below in the foreach loop for the
-                   increment itself */
+                // Counter that will be used for the progress bar
                 int counterprogressbar = 100 / listBox1.Items.Count;
 
                 // reset the progress bar to 0 each time the Upload button is clicked on
@@ -117,19 +118,15 @@ namespace ImageUpper
                             }
                         };
 
-                        // Put the collection called values and the URL into a 
                         byte[] response = w.UploadValues("https://api.imgur.com/3/upload.xml", values);
 
-                        // Save the response to a variable called responseback so it can be parsed later
                         var responseback = XDocument.Load(new MemoryStream(response));
 
                         // Regex to parse for anything between <link> and </link> to get the URL of the uploaded image
                         Regex regexlink = new Regex("<link>(.*)</link>");
 
-                        // Regex to parse for width of the image
+                        // Regex to parse for height and width of the image
                         Regex regexwidth = new Regex("<width>(.*)</width>");
-
-                        // Regex to parse for height of the image
                         Regex regexheight = new Regex("<height>(.*)</height>");
 
                         // Parse responseback with the regex
@@ -139,7 +136,6 @@ namespace ImageUpper
                         // to correspond with the image and URL as it does it one by one for the loop
                         listBox2.Items.Add(urlimage);
 
-                        // Get the width and the height using regex
                         string urlimagewidth = regexwidth.Match(responseback.ToString()).Groups[1].ToString();
                         string urlimageheight = regexheight.Match(responseback.ToString()).Groups[1].ToString();
 
@@ -159,6 +155,8 @@ namespace ImageUpper
 
         private void button6_Click(object sender, EventArgs e)
         {
+            // Clear items in the Selected Images box
+
             listBox1.Items.Clear();
         }
 
@@ -198,6 +196,7 @@ namespace ImageUpper
 
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Remove items by right-clicking items in the Selected Images box and clicking Remove
             for (int i = listBox1.SelectedIndices.Count - 1; i >= 0; i--)
             {
                 listBox1.Items.RemoveAt(listBox1.SelectedIndices[i]);
@@ -207,6 +206,8 @@ namespace ImageUpper
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Copy items from the Uploaded Images section
+
             Clipboard.Clear();
 
             StringBuilder sbu = new StringBuilder();
@@ -230,6 +231,9 @@ namespace ImageUpper
 
         private void removeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+
+            // Remove items from the Uploaded Images box by right-clicking and choosing Remove
+
             for (int i = listBox1.SelectedIndices.Count - 1; i >= 0; i--)
             {
                 listBox2.Items.RemoveAt(listBox2.SelectedIndices[i]);
@@ -239,6 +243,8 @@ namespace ImageUpper
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Copy all links
+
             Clipboard.Clear();
 
             StringBuilder sbu = new StringBuilder();
@@ -262,6 +268,8 @@ namespace ImageUpper
 
         private void BtnClearAllLinks_Click(object sender, EventArgs e)
         {
+            // Clear all links button
+
             listBox2.Items.Clear();
             listBox3.Items.Clear();
             listBox4.Items.Clear();
@@ -270,11 +278,15 @@ namespace ImageUpper
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // From the menu: File -> Exit
+
             Application.Exit();
         }
 
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // From the menu: Edit -> Clear All
+
             listBox1.Items.Clear();
             listBox2.Items.Clear();
             listBox3.Items.Clear();
@@ -284,18 +296,25 @@ namespace ImageUpper
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ImgUpper v0.1a.", "About");
+            // From the menu: Help -> About
+
+            MessageBox.Show("ImgUpper v0.1a.\n\nCreated by codeandapples on GitHub.", "About");
+
         }
 
 
         private void openLinkToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Open uploaded images in a browser from the right-click menu
+
             System.Diagnostics.Process.Start(listBox2.SelectedItem.ToString());
         }
 
 
         private void BtnExportAllLinksToTextFile_Click(object sender, EventArgs e)
         {
+            // Export all uploaded images to a text file
+            
             if (listBox2.Items.Count == 0)
             {
                 MessageBox.Show("Please upload something first.");
@@ -324,6 +343,8 @@ namespace ImageUpper
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            // Copy all URLs for images uploaded
+
             if (listBox2.Items.Count == 0)
             {
                 MessageBox.Show("Please upload something first.");
@@ -352,6 +373,7 @@ namespace ImageUpper
 
         private void ImageUps_KeyDown(object sender, KeyEventArgs e)
         {
+            // Keyboard shorcuts:
 
             // Open file dialog to choose images when pressing CTRL + O
             if (e.Control && e.KeyCode.ToString() == "O")
@@ -384,6 +406,8 @@ namespace ImageUpper
 
         private void listBox1_DragDrop(object sender, DragEventArgs e)
         {
+            // Drag-and-drop images onto the Selected Images box
+
             if (e.Data.GetDataPresent(DataFormats.FileDrop, false) == true)
             {
                 e.Effect = DragDropEffects.All;
@@ -407,5 +431,7 @@ namespace ImageUpper
         {
             return Path.GetFileNameWithoutExtension(path);
         }
+
+
     }
 }

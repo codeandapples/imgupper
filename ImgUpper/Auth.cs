@@ -8,6 +8,7 @@ namespace ImageUpper
 {
     class Auth
     {
+        // Add your own Client ID to myclientid
         public string myclientid = "";
     }
 }
