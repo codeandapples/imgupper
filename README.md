@@ -3,7 +3,7 @@ __by codeandapples__
 
 A nice and easy to use image uploader, currently supporting imgur.com
 
-##Supports:
+##Features:
 
 Multiple image selection and uploading,
 
@@ -27,4 +27,4 @@ Automatically displays image dimensions once uploaded
 
 
 
-You can simply plug in your own client ID, everything else is set up for you.
+You can simply plug in your own client ID, everything else has been set up for you.
