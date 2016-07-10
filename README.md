@@ -1,7 +1,7 @@
 # ImgUpper
 __by codeandapples__
 
-A nice and easy to use image uploader, currently supporting imgur.com
+A nice, easy to use image uploader - currently supporting imgur.com
 
 ##Features:
 
