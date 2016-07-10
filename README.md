@@ -21,7 +21,9 @@ Remove files with right-clicking and remove,
 
 Information on errors,
 
-Automatically displays image dimensions
+Floating window to make it easier to drag-and-drop files,
+
+Automatically displays image dimensions once uploaded
 
 
 
