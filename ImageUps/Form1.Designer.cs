@@ -1,4 +1,4 @@
-﻿namespace ImageUps
+﻿namespace ImageUpper
 {
     partial class ImageUps
     {
@@ -371,7 +371,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ImageUps.Properties.Resources.IUlogo;
+            this.pictureBox1.Image = global::ImageUpper.Properties.Resources.IUlogo;
             this.pictureBox1.Location = new System.Drawing.Point(234, 213);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(104, 82);

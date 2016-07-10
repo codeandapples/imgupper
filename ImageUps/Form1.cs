@@ -14,7 +14,7 @@ using System.Xml.Linq;
 using System.Collections.Specialized;
 using System.Text.RegularExpressions;
 
-namespace ImageUps
+namespace ImageUpper
 {
     public partial class ImageUps : Form
     {

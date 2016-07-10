@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ImageUps.Properties
+namespace ImageUpper.Properties
 {
 
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace ImageUps
+namespace ImageUpper
 {
     static class Form1
     {
