@@ -19,6 +19,8 @@ Keyboard shortcuts,
 
 Remove files with right-clicking and remove,
 
+Supports large image filesizes,
+
 Information on errors,
 
 Floating window to make it easier to drag-and-drop files,
